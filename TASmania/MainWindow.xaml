@@ -1,0 +1,58 @@
+﻿<Window x:Class="TASmania.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TASmania"
+        mc:Ignorable="d"
+        Title="TASmania" Height="450" Width="400">
+	<Window.DataContext>
+		<local:Tasmania/>
+	</Window.DataContext>
+	<Window.Resources>
+		<Style TargetType="TextBlock">
+			<Setter Property="Margin" Value="3"/>
+			<Setter Property="Padding" Value="3"/>
+		</Style>
+		<Style TargetType="Button">
+			<Setter Property="Margin" Value="3"/>
+			<Setter Property="Width" Value="60"/>
+			<Setter Property="Height" Value="25"/>
+		</Style>
+		<local:KeyConverter x:Key="keyConverter"/>
+	</Window.Resources>
+	<TabControl>
+		<TabItem Header="TAS">
+			<DockPanel>
+				<StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="3">
+					<Button Command="{Binding RecordCmd}" ToolTip="Record your mouse and keyboard inputs">Record</Button>
+					<Button Command="{Binding PlaybackCmd}" ToolTip="Play back the displayed list of inputs">Play</Button>
+					<Button Command="{Binding StopCmd}" ToolTip="Stop the currently running action">Stop</Button>
+				</StackPanel>
+				<TextBox Text="{Binding Macro}" IsReadOnly="{Binding IsBusy}" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+						 ToolTip="This is the list of inputs and commands that are ready to play back. You can edit this list here, or copy it into another text editor."/>
+			</DockPanel>
+		</TabItem>
+		<TabItem Header="Settings">
+			<StackPanel>
+				<GroupBox Header="Hotkeys">
+					<ItemsControl ItemsSource="{Binding Hotkeys.Values}">
+						<ItemsControl.ItemTemplate>
+							<DataTemplate>
+								<DataTemplate.Resources>
+									<Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}" />
+								</DataTemplate.Resources>
+								<StackPanel Orientation="Horizontal">
+									<TextBlock Text="{Binding Label}" Width="140" TextAlignment="Right" VerticalAlignment="Center" ToolTip="{Binding Description}"/>
+									<TextBlock Text="{Binding Key, Converter={StaticResource keyConverter}}" Width="100" Background="LightGray"
+											   ToolTip="Click to assign a key. Right click to reset."
+											   MouseLeftButtonDown="Hotkey_MouseLeftButtonDown" MouseRightButtonDown="Hotkey_MouseRightButtonDown"/>
+								</StackPanel>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</GroupBox>
+			</StackPanel>
+		</TabItem>
+	</TabControl>
+</Window>

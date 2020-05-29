@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TASmania", "TASmania\TASmania.csproj", "{76B326BB-F725-4D1A-994A-510A528EB5C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76B326BB-F725-4D1A-994A-510A528EB5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76B326BB-F725-4D1A-994A-510A528EB5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76B326BB-F725-4D1A-994A-510A528EB5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76B326BB-F725-4D1A-994A-510A528EB5C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B81DD00E-8C67-41E1-B049-0C0270CCD6D6}
+	EndGlobalSection
+EndGlobal
