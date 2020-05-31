@@ -4,6 +4,10 @@ TASmania is a tool for creating tool-assisted speedruns on Windows. It can recor
 
 ![](doc/TAS.png)
 
+## Download
+
+Visit the [Releases](//github.com/kendfrey/TASmania/releases) page to download the latest version.
+
 ## Commands
 
 - `mousemove <x> <y>` - Moves the cursor to the pixel coordinates `<x>` and `<y>`.
