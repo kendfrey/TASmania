@@ -60,6 +60,10 @@ namespace TASmania
 			hook.KeyDown += Hook_KeyDown;
 			hook.KeyUp += Hook_KeyUp;
 
+			foreach (Hotkey hotkey in Hotkeys.Values)
+			{
+				hotkey.PropertyChanged += (s, e) => SaveSettings();
+			}
 			Playback.PropertyChanged += (s, e) => OnPropertyChanged(nameof(IsBusy));
 
 			RecordCmd = new RecordCommand(this);
@@ -101,16 +105,16 @@ namespace TASmania
 		private void Hook_KeyDown(object sender, WF.KeyEventArgs e)
 		{
 			int scancode = ((KeyEventArgsExt)e).ScanCode;
-			bool shouldSave = false;
+			bool settingsChanged = false;
 			foreach (Hotkey listeningHotkey in Hotkeys.Values.Where(h => h.Key < 0))
 			{
 				listeningHotkey.Key = scancode;
-				shouldSave = true;
+				settingsChanged = true;
 			}
 
-			if (shouldSave)
+			if (settingsChanged)
 			{
-				SaveSettings();
+				return;
 			}
 			else if (scancode == Hotkeys["stop"].Key)
 			{
