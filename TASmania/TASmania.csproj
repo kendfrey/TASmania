@@ -9,6 +9,7 @@
     <FileVersion>0.1.0.0</FileVersion>
     <Version>0.1.0</Version>
     <Copyright>Copyright (c) Kendall Frey 2020</Copyright>
+    <ApplicationIcon>TASmania.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
